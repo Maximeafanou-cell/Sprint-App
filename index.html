@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#ff6b00">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Sprint Pro">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Sprint Pro</title>
@@ -3143,6 +3151,609 @@ body.drawer-lock{
   display:none!important;
 }
 
+
+/* Localisation : bouton icône uniquement, aucun texte qui déborde */
+#page-carte .track-search-row{
+  grid-template-columns:1fr 48px!important;
+  align-items:center!important;
+}
+#page-carte .locate-mini{
+  width:48px!important;
+  min-width:48px!important;
+  max-width:48px!important;
+  height:48px!important;
+  min-height:48px!important;
+  max-height:48px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  border-radius:16px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-indent:0!important;
+  white-space:nowrap!important;
+  font-size:0!important;
+  line-height:1!important;
+  position:relative!important;
+  background:linear-gradient(180deg,#121821,#0d1117)!important;
+  border:1px solid #2a3442!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+#page-carte .locate-glyph{
+  display:block!important;
+  width:22px!important;
+  height:22px!important;
+  font-size:18px!important;
+  line-height:22px!important;
+  text-align:center!important;
+  transform:translateY(1px) scale(.88)!important;
+  transform-origin:center center!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+  pointer-events:none!important;
+}
+#page-carte .locate-mini:hover{
+  border-color:rgba(217,163,24,.55)!important;
+  transform:translateY(-1px)!important;
+}
+#page-carte .locate-mini.is-loading .locate-glyph{
+  animation:locatePulse .9s ease-in-out infinite!important;
+}
+#page-carte .locate-mini.is-located{
+  background:linear-gradient(180deg,rgba(217,163,24,.18),#0d1117)!important;
+  border-color:rgba(217,163,24,.72)!important;
+  box-shadow:0 0 0 3px rgba(217,163,24,.10), inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+#page-carte .locate-mini.is-located::after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#44d07b;
+  top:8px;
+  right:8px;
+  box-shadow:0 0 0 2px #111821;
+}
+@keyframes locatePulse{
+  0%,100%{opacity:.65;transform:translateY(1px) scale(.84)}
+  50%{opacity:1;transform:translateY(1px) scale(.94)}
+}
+
+
+/* Sprint Pro 5 onglets + Social */
+.quick-action-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.quick-action-card .quick-copy{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.quick-action-card strong{
+  color:#f4f7fa;
+  font-size:13px;
+  letter-spacing:.02em;
+}
+.quick-action-card span{
+  color:#707885;
+  font-size:10px;
+  line-height:1.35;
+}
+.quick-action-card button{
+  flex:0 0 auto;
+}
+.social-hero{
+  background:linear-gradient(180deg,#12161d,#0b0f15);
+  border:1px solid rgba(217,163,24,.26);
+}
+.social-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+.social-title{
+  color:#f4f7fa;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+.social-sub{
+  color:#707885;
+  font-size:11px;
+  margin-top:4px;
+  line-height:1.35;
+}
+.social-pill{
+  border:1px solid rgba(217,163,24,.32);
+  color:#d9a318;
+  background:rgba(217,163,24,.08);
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  white-space:nowrap;
+}
+.friend-card{
+  background:#0d1117;
+  border:1px solid #202936;
+  border-radius:15px;
+  padding:12px;
+  margin-bottom:8px;
+}
+.friend-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:9px;
+}
+.friend-name{
+  color:#f4f7fa;
+  font-size:14px;
+  font-weight:800;
+}
+.friend-status{
+  color:#7b8797;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.friend-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+}
+.friend-pb{
+  background:#111720;
+  border:1px solid #26303d;
+  border-radius:11px;
+  padding:8px 6px;
+  text-align:center;
+}
+.friend-pb span{
+  display:block;
+  color:#697484;
+  font-size:8px;
+  margin-bottom:3px;
+  letter-spacing:.08em;
+}
+.friend-pb strong{
+  color:#f4f7fa;
+  font-size:12px;
+}
+.compare-row{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:8px;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.compare-row:last-child{border-bottom:none}
+.compare-me,.compare-friend{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.compare-me{align-items:flex-start}
+.compare-friend{align-items:flex-end}
+.compare-label{
+  color:#697484;
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.compare-time{
+  color:#f4f7fa;
+  font-size:13px;
+  font-weight:800;
+}
+.compare-mid{
+  color:#d9a318;
+  font-size:10px;
+  font-weight:900;
+  text-align:center;
+}
+.map-friend-feed{
+  width:100%;
+  max-width:460px;
+  margin:.75rem auto 0;
+}
+.friend-map-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  background:#0d1117;
+  border:1px solid #202936;
+  border-radius:14px;
+  padding:10px 12px;
+  margin-bottom:7px;
+}
+.friend-map-main{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.friend-map-main strong{
+  color:#f4f7fa;
+  font-size:12px;
+}
+.friend-map-main span{
+  color:#697484;
+  font-size:10px;
+}
+.friend-map-time{
+  color:#d9a318;
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
+}
+@media(max-width:420px){
+  .friend-grid{gap:5px}
+  .friend-pb{padding:7px 4px}
+  .friend-pb strong{font-size:11px}
+  .social-title{font-size:16px}
+}
+
+
+/* Social UX premium — onglets haut type Strava */
+.social-tabs{position:sticky;top:0;z-index:8;display:flex;gap:10px;overflow-x:auto;padding:8px 0 12px;margin:-2px 0 10px;background:linear-gradient(180deg,#07090d 0%,rgba(7,9,13,.94) 76%,rgba(7,9,13,0) 100%);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.social-tabs::-webkit-scrollbar{display:none}
+.social-tab{flex:0 0 auto;border:1px solid #222b38;color:#8f98a6;background:#10151c;border-radius:999px;padding:10px 14px;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.social-tab.active{color:#05070a;background:linear-gradient(135deg,#ffd24a,#e3a90c);border-color:#f0b71b;box-shadow:0 12px 30px rgba(227,169,12,.22)}
+.social-panel{display:none}.social-panel.active{display:block}
+.social-form{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.social-form input{min-width:0}.social-form button{height:50px;min-width:128px;padding:0 18px}
+.social-section-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0 8px}.social-section-header .sec-label{margin:0}
+.social-count{color:#d9a318;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.friends-list-modern{display:grid;grid-template-columns:1fr;gap:10px}
+.friend-card{width:100%;max-width:none;margin:0;padding:14px}
+.friend-head{margin-bottom:12px}.friend-name-wrap{display:flex;align-items:center;gap:10px;min-width:0}
+.friend-avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#080a0f;font-weight:1000;background:linear-gradient(135deg,#ffd24a,#f37021);box-shadow:0 8px 20px rgba(243,112,33,.18)}
+.friend-name{line-height:1.05}.friend-subline{color:#677282;font-size:10px;margin-top:3px}
+.friend-actions{display:flex;align-items:center;gap:8px}.friend-mini-btn{border:1px solid #2b3544;background:#131923;color:#d9a318;border-radius:999px;padding:7px 10px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.friend-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.friend-pb{min-width:0}.friend-pb span{white-space:nowrap}
+.social-feed-card{background:#0d1117;border:1px solid #202936;border-radius:17px;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:9px}
+.social-feed-main{display:flex;align-items:center;gap:10px;min-width:0}.social-feed-text{min-width:0}
+.social-feed-text strong{display:block;color:#f4f7fa;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.social-feed-text span{display:block;color:#6d7786;font-size:10px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.social-feed-time{color:#d9a318;font-size:15px;font-weight:1000;white-space:nowrap}.compare-card-modern{padding:4px 14px}.compare-row{grid-template-columns:minmax(0,1fr) 76px minmax(0,1fr)}
+.map-social-note{background:linear-gradient(180deg,#11161e,#0b0f15);border:1px solid rgba(217,163,24,.20);border-radius:17px;padding:13px;margin-bottom:10px}.map-social-note strong{color:#f4f7fa;display:block;font-size:13px;margin-bottom:4px}.map-social-note span{color:#737e8c;font-size:10px;line-height:1.4}
+@media(min-width:760px){.friends-list-modern{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.social-form{grid-template-columns:1fr}.social-form button{width:100%}.friend-card{border-radius:18px;padding:13px}.friend-grid{gap:6px}.friend-pb{padding:9px 5px}.friend-actions{flex-direction:column;align-items:flex-end;gap:5px}.compare-row{grid-template-columns:1fr;gap:5px;text-align:left}.compare-friend{align-items:flex-start}.compare-mid{text-align:left}}
+
+
+/* Chronos/Starter tabs + compact social cards */
+.tool-tabs{
+  position:sticky;
+  top:0;
+  z-index:8;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:8px 0 12px;
+  margin:-2px 0 10px;
+  background:linear-gradient(180deg,#07090d 0%,rgba(7,9,13,.94) 76%,rgba(7,9,13,0) 100%);
+  scrollbar-width:none;
+}
+.tool-tabs::-webkit-scrollbar{display:none}
+.tool-tab{
+  flex:1 1 0;
+  min-width:130px;
+  border:1px solid #222b38;
+  color:#8f98a6;
+  background:#10151c;
+  border-radius:999px;
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.tool-tab.active{
+  color:#05070a;
+  background:linear-gradient(135deg,#ffd24a,#e3a90c);
+  border-color:#f0b71b;
+  box-shadow:0 12px 30px rgba(227,169,12,.22);
+}
+.friends-list-modern{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:9px;
+}
+.friend-card.compact{
+  padding:0;
+  overflow:hidden;
+  border-radius:16px;
+}
+.friend-summary{
+  width:100%;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto auto;
+  gap:10px;
+  align-items:center;
+  padding:12px;
+  background:transparent;
+  border:none;
+  color:inherit;
+  text-align:left;
+}
+.friend-summary:hover{background:#10161e}
+.friend-main{
+  min-width:0;
+}
+.friend-main .friend-name{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.friend-main .friend-subline{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.friend-key{
+  text-align:right;
+  min-width:64px;
+}
+.friend-key span{
+  display:block;
+  color:#697484;
+  font-size:8px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:2px;
+}
+.friend-key strong{
+  color:#f4f7fa;
+  font-size:15px;
+}
+.friend-chevron{
+  color:#d9a318;
+  font-size:15px;
+  transition:transform .2s ease;
+}
+.friend-card.expanded .friend-chevron{
+  transform:rotate(180deg);
+}
+.friend-details{
+  display:none;
+  padding:0 12px 12px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.friend-card.expanded .friend-details{
+  display:block;
+}
+.friend-details .friend-grid{
+  margin-top:10px;
+}
+.friend-detail-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:10px;
+}
+.friend-detail-actions .friend-mini-btn{
+  padding:9px 12px;
+}
+.map-friend-feed{
+  display:none !important;
+}
+@media(min-width:760px){
+  .friends-list-modern{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:560px){
+  .friend-summary{
+    grid-template-columns:auto minmax(0,1fr) auto auto;
+    gap:9px;
+    padding:11px;
+  }
+  .friend-avatar{
+    width:34px;
+    height:34px;
+    font-size:12px;
+  }
+  .friend-key{
+    min-width:58px;
+  }
+  .friend-key strong{
+    font-size:14px;
+  }
+}
+
+
+/* Navigation secondaire claire */
+.section-tabs{
+  position:sticky;top:0;z-index:12;width:100%;max-width:460px;
+  display:flex;gap:9px;margin:0 auto 12px;padding:8px 0 10px;
+  background:linear-gradient(180deg,#07090d 0%,rgba(7,9,13,.96) 78%,rgba(7,9,13,0) 100%);
+}
+.section-tab{
+  flex:1 1 0;min-width:0;min-height:42px;border:1px solid #252e3b;
+  border-radius:999px;background:#10151c;color:#8f98a6;padding:10px 12px;
+  font-size:10px;font-weight:900;letter-spacing:.075em;text-transform:uppercase;white-space:nowrap;
+}
+.section-tab.active{
+  color:#080a0e;background:linear-gradient(135deg,#ffd24a,#e7aa0b);
+  border-color:#efb516;box-shadow:0 10px 24px rgba(231,170,11,.20);
+}
+#page-starter .section-tabs{
+  flex:0 0 auto!important;width:100%!important;max-width:460px!important;
+  margin:0 auto 6px!important;padding:4px 0 10px!important;position:sticky!important;
+  top:0!important;z-index:20!important;
+}
+#page-starter .section-tabs .section-tab{
+  flex:1 1 0!important;width:auto!important;max-width:none!important;min-width:0!important;
+  min-height:42px!important;height:42px!important;margin:0!important;padding:9px 10px!important;
+  border-radius:999px!important;font-size:10px!important;line-height:1!important;letter-spacing:.075em!important;
+}
+.dashboard-objective-link{
+  cursor:pointer;position:relative;transition:border-color .18s ease,transform .18s ease,background .18s ease;
+}
+.dashboard-objective-link::after{
+  content:"›";position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  color:#d9a318;font-size:20px;font-weight:300;
+}
+.dashboard-objective-link:hover{border-color:rgba(217,163,24,.35)!important;background:#111720!important}
+.dashboard-objective-link:active{transform:scale(.985)}
+.obj-card-premium .obj-delete{color:transparent!important;font-size:0!important;line-height:0!important}
+.obj-card-premium .obj-delete::before,.obj-card-premium .obj-delete::after{content:""!important;display:block!important}
+
+
+/* Sprint Pro — tableau de bord, social aligné et performances ventées */
+.wind-aided-time{color:#c084fc!important}
+.wind-aided-mark{
+  display:inline-grid;place-items:center;min-width:16px;height:16px;margin-left:4px;padding:0 4px;
+  border:1px solid rgba(192,132,252,.55);border-radius:999px;background:rgba(126,34,206,.16);
+  color:#d8b4fe;font-size:9px;font-weight:1000;line-height:1;vertical-align:3px;letter-spacing:0
+}
+.badge-wind{color:#e9d5ff!important;background:rgba(126,34,206,.18)!important;border-color:rgba(192,132,252,.48)!important}
+.rec-item.wind-aided{border-left-color:#a855f7!important;box-shadow:inset 0 0 0 1px rgba(168,85,247,.08)}
+
+@media(min-width:800px){
+  #page-dashboard{align-items:center!important;padding-left:28px!important;padding-right:28px!important}
+  #page-dashboard > .section-tabs,
+  #page-dashboard > div[style*="max-width:460px"],
+  #page-dashboard > .grid1,
+  #page-dashboard > .grid2{width:100%!important;max-width:920px!important}
+  #page-dashboard > .grid2{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+  #page-dashboard .dcard{min-width:0}
+  #page-dashboard .dash-greeting{font-size:24px}
+}
+
+#page-social{align-items:center!important}
+#page-social > .page-title,
+#page-social > .social-tabs,
+#page-social > .social-hero,
+#page-social > .social-panel{width:100%;max-width:820px}
+#page-social .social-panel{margin-left:auto;margin-right:auto}
+#page-social .social-section-header{width:100%;max-width:none;align-items:center}
+#page-social .social-section-header .sec-label{width:auto;max-width:none;margin:0}
+#page-social .social-count{flex:0 0 auto;white-space:nowrap}
+#page-social .card{max-width:none}
+#page-social .friends-list-modern{width:100%}
+#page-social #compare-card{width:100%;max-width:none;min-height:0}
+
+.compare-friend-picker{
+  display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-bottom:4px;scrollbar-width:none
+}
+.compare-friend-picker::-webkit-scrollbar{display:none}
+.compare-friend-chip{
+  flex:0 0 auto;display:flex;align-items:center;gap:7px;border:1px solid #263140;border-radius:999px;
+  background:#111821;color:#9aa4b2;padding:7px 10px 7px 7px;font-size:10px;font-weight:900;cursor:pointer
+}
+.compare-friend-chip.active{border-color:rgba(217,163,24,.7);color:#f7d366;background:rgba(217,163,24,.09)}
+.compare-friend-chip .friend-avatar{width:26px;height:26px;font-size:9px;box-shadow:none}
+.compare-summary{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0 8px;
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.compare-summary strong{color:#f4f7fa;font-size:14px}
+.compare-summary span{color:#788392;font-size:9px}
+.compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 0}
+.compare-distance-card{background:#10161e;border:1px solid #252f3c;border-radius:13px;padding:10px}
+.compare-distance-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.compare-distance{color:#d9a318;font-size:10px;font-weight:1000;letter-spacing:.08em}
+.compare-result{color:#7e8998;font-size:8px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.compare-values{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:7px}
+.compare-person{min-width:0}
+.compare-person.right{text-align:right}
+.compare-person span{
+  display:block;color:#687383;font-size:8px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.compare-person strong{color:#f2f5f8;font-size:15px}
+.compare-vs{color:#535e6c;font-size:9px;font-weight:900;padding-bottom:2px}
+.compare-legend{margin-top:4px;color:#697484;font-size:9px;line-height:1.45}
+@media(max-width:560px){
+  #page-social > .social-tabs{max-width:100%}
+  .compare-grid{grid-template-columns:1fr}
+}
+
+
+/* Correction d'alignement Social — une seule grille centrale */
+#page-social{
+  width:100%!important;
+  max-width:1180px!important;
+  margin:0 auto!important;
+  padding-left:18px!important;
+  padding-right:18px!important;
+  align-items:stretch!important;
+  box-sizing:border-box!important;
+}
+
+#page-social > .page-title,
+#page-social > .social-tabs,
+#page-social > .social-hero,
+#page-social > .social-panel{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  box-sizing:border-box!important;
+}
+
+#page-social > .social-tabs{
+  justify-content:flex-start!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+#page-social .social-panel,
+#page-social .social-section-header,
+#page-social .friends-list-modern,
+#page-social #compare-friend-picker,
+#page-social #compare-card,
+#page-social #social-feed,
+#page-social #social-map-list{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  box-sizing:border-box!important;
+}
+
+#page-social .social-form{
+  width:100%!important;
+}
+
+#page-social .social-hero,
+#page-social .social-panel > .card{
+  border-radius:18px!important;
+}
+
+#page-social .friends-list-modern{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+
+#page-social .friend-card{
+  width:100%!important;
+  min-width:0!important;
+}
+
+@media(max-width:760px){
+  #page-social{
+    max-width:560px!important;
+    padding-left:12px!important;
+    padding-right:12px!important;
+  }
+
+  #page-social > .social-tabs{
+    overflow-x:auto!important;
+  }
+
+  #page-social .friends-list-modern{
+    grid-template-columns:1fr!important;
+    gap:9px!important;
+  }
+}
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
@@ -3176,6 +3787,10 @@ body.drawer-lock{
 
 <div id="page-dashboard" class="page active">
   <p class="page-title">Sprint Pro</p>
+  <div class="section-tabs" role="tablist" aria-label="Accueil et objectifs">
+    <button class="section-tab active" onclick="showPage('dashboard',document.querySelector('[data-nav=&quot;dashboard&quot;]'))">Tableau de bord</button>
+    <button class="section-tab" onclick="showPage('objectifs',document.querySelector('[data-nav=&quot;dashboard&quot;]'))">Objectifs & forme</button>
+  </div>
 
   <div style="width:100%;max-width:460px">
     <div class="dash-greeting" id="dash-greeting">Bonjour</div>
@@ -3197,7 +3812,9 @@ body.drawer-lock{
       <div class="dval blue" id="d-last">--</div>
       <div class="dsub" id="d-last-sub"></div>
     </div>
-    <div class="dcard">
+    <div class="dcard dashboard-objective-link" role="button" tabindex="0"
+      onclick="showPage('objectifs',document.querySelector('[data-nav=&quot;dashboard&quot;]'))"
+      onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('objectifs',document.querySelector('[data-nav=&quot;dashboard&quot;]'));}">
       <div class="dlabel">Objectif</div>
       <div class="dval white" id="d-obj100">--</div>
       <div class="dsub" id="d-obj-gap"></div>
@@ -3234,6 +3851,8 @@ body.drawer-lock{
       <div id="d-key-recs"></div>
     </div>
   </div>
+
+
 
   <div class="grid1 cycle-card">
     <div class="dcard cycle-compact-card">
@@ -3277,8 +3896,12 @@ body.drawer-lock{
 </div>
 
 <div id="page-starter" class="page">
-  <p id="s-title">Starter Athletisme</p>
-  <div id="phase">Pret ?</div>
+  <div class="section-tabs" role="tablist" aria-label="Chronos et starter">
+    <button class="section-tab" onclick="showPage('chronos',document.querySelector('[data-nav=&quot;chronos&quot;]'))">Chronos</button>
+    <button class="section-tab active" onclick="showPage('starter',document.querySelector('[data-nav=&quot;chronos&quot;]'))">Starter</button>
+  </div>
+  <p id="s-title">Starter Athlétisme</p>
+  <div id="phase">Prêt ?</div>
   <div id="subtitle"></div>
   <div id="circle">&#127937;</div>
   <div id="countdown"></div>
@@ -3296,7 +3919,7 @@ body.drawer-lock{
       <div class="reaction-verdict" id="reaction-verdict"></div>
       <div class="reaction-avg" id="reaction-avg"></div>
       <div class="reaction-hist" id="reaction-hist"></div>
-      <div class="sec-label" style="margin-top:.8rem">Historique delais depart</div>
+      <div class="sec-label" style="margin-top:.8rem">Historique délais départ</div>
       <div id="delay-hist"></div>
     </div>
   </div>
@@ -3304,10 +3927,18 @@ body.drawer-lock{
 
 <div id="page-chronos" class="page">
   <p class="page-title">Mes Chronos</p>
-  <div class="tab-row">
-    <button class="tab-btn active" onclick="setType('training',this)">&#127939; Entrainement</button>
-    <button class="tab-btn" onclick="setType('official',this)">🏅 Competition</button>
+
+  <div class="section-tabs" role="tablist" aria-label="Chronos et starter">
+    <button class="section-tab active" onclick="showPage('chronos',document.querySelector('[data-nav=&quot;chronos&quot;]'))">Chronos</button>
+    <button class="section-tab" onclick="showPage('starter',document.querySelector('[data-nav=&quot;chronos&quot;]'))">Starter</button>
   </div>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="setType('training',this)">&#127939; Entraînement</button>
+    <button class="tab-btn" onclick="setType('official',this)">🏅 Compétition</button>
+  </div>
+
+
   <div class="card ffa-mini" id="ffa-import-card" style="display:none">
     <div class="card-title">Import officiel FFA</div>
     <div class="field">
@@ -3349,7 +3980,7 @@ body.drawer-lock{
       <div class="field-row">
         <div class="field"><div class="field-label">Vent (m/s)</div><input type="number" id="f-wind" placeholder="+1.2" step="0.1" min="-9" max="9"></div>
         <div class="field" id="f-compet-wrap" style="display:none">
-          <div class="field-label">Competition</div><input type="text" id="f-compet" placeholder="ex: Championnat">
+          <div class="field-label">Compétition</div><input type="text" id="f-compet" placeholder="ex: Championnat">
         </div>
       </div>
       <div class="field-row">
@@ -3379,21 +4010,21 @@ body.drawer-lock{
 </div>
 
 <div id="page-stats" class="page">
-  <p class="page-title">Evolution et Records</p>
+  <p class="page-title">Évolution et Records</p>
   <div style="width:100%;max-width:460px;margin-bottom:.8rem"><select id="s-dist" onchange="renderStats()" style="width:100%"></select></div>
   <div class="tab-row">
     <button class="tab-btn active" onclick="setStatsTab('month',this)">Mois/mois</button>
-    <button class="tab-btn" onclick="setStatsTab('year',this)">Annee/annee</button>
+    <button class="tab-btn" onclick="setStatsTab('year',this)">Année/année</button>
   </div>
   <div class="legend-row">
-    <div class="legend-item"><div class="legend-dot" style="background:#4a90d9"></div>Entrainement</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#d4a017"></div>Competition</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a90d9"></div>Entraînement</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d4a017"></div>Compétition</div>
   </div>
   <div class="chart-wrap">
     <div class="chart-empty" id="chart-empty">
       <div style="font-size:28px;opacity:.3">&#128202;</div>
       <div>Ajoute au moins 2 chronos<br>pour voir ton evolution</div>
-      <button class="btn-outline" style="margin-top:.5rem" onclick="showPage('chronos',document.querySelectorAll('.nav-btn')[2])">+ Ajouter un chrono</button>
+      <button class="btn-outline" style="margin-top:.5rem" onclick="showPage('chronos',document.querySelector('[data-nav="chronos"]'))">+ Ajouter un chrono</button>
     </div>
     <canvas id="myChart" style="display:none"></canvas>
   </div>
@@ -3401,22 +4032,26 @@ body.drawer-lock{
     <div class="card-title">Analyse</div>
     <div class="analysis-text" id="stats-analysis-text"></div>
   </div>
-  <div class="sec-label">Records Entrainement</div>
+  <div class="sec-label">Records Entraînement</div>
   <div id="pb-train" class="pb-grid"></div>
-  <div class="sec-label">Records Competition</div>
+  <div class="sec-label">Records Compétition</div>
   <div id="pb-official" class="pb-grid"></div>
 </div>
 
 <div id="page-objectifs" class="page">
   <p class="page-title">Objectifs et Forme</p>
+  <div class="section-tabs" role="tablist" aria-label="Accueil et objectifs">
+    <button class="section-tab" onclick="showPage('dashboard',document.querySelector('[data-nav=&quot;dashboard&quot;]'))">Tableau de bord</button>
+    <button class="section-tab active" onclick="showPage('objectifs',document.querySelector('[data-nav=&quot;dashboard&quot;]'))">Objectifs & forme</button>
+  </div>
   <button class="obj-add-toggle" id="obj-add-toggle" onclick="toggleObjectiveForm()">+ Ajouter un objectif</button>
   <div class="card obj-form-card" id="obj-form-card" style="display:none">
-    <div class="card-title">Definir un objectif</div>
+    <div class="card-title">Définir un objectif</div>
     <div class="field-row">
       <div class="field"><div class="field-label">Distance</div><select id="obj-dist"><option value="10">10m</option><option value="20">20m</option><option value="30">30m</option><option value="40">40m</option><option value="60">60m</option><option value="100" selected>100m</option><option value="200">200m</option><option value="400">400m</option><option value="f10">Flying 10m</option><option value="f20">Flying 20m</option></select></div>
       <div class="field"><div class="field-label">Cible (s)</div><input type="number" id="obj-target" placeholder="10.80" step="0.01" min="0"></div>
     </div>
-    <div class="field"><div class="field-label">Echeance</div><input type="text" id="obj-deadline" placeholder="ex: Saison 2026"></div>
+    <div class="field"><div class="field-label">Échéance</div><input type="text" id="obj-deadline" placeholder="ex: Saison 2026"></div>
     <button class="btn-gold" onclick="addObjectif()">Enregistrer</button>
   </div>
   <div class="sec-label">Mes objectifs</div>
@@ -3454,6 +4089,72 @@ body.drawer-lock{
   <div id="seances-list" style="display:none"></div>
 </div>
 
+
+
+<div id="page-social" class="page">
+  <p class="page-title">Social</p>
+
+  <div class="social-tabs" role="tablist">
+    <button class="social-tab active" data-social-tab="amis" onclick="showSocialTab('amis',this)">Amis</button>
+    <button class="social-tab" data-social-tab="comparer" onclick="showSocialTab('comparer',this)">Comparer</button>
+    <button class="social-tab" data-social-tab="activite" onclick="showSocialTab('activite',this)">Activité</button>
+    <button class="social-tab" data-social-tab="carte" onclick="showSocialTab('carte',this)">Carte amis</button>
+  </div>
+
+  <div class="card social-hero">
+    <div class="social-top">
+      <div>
+        <div class="social-title">Ton réseau sprint</div>
+        <div class="social-sub">Ajoute des amis, compare les PB et visualise les lieux où chacun a réalisé ses chronos.</div>
+      </div>
+      <div class="social-pill">Bêta</div>
+    </div>
+  </div>
+
+  <section id="social-panel-amis" class="social-panel active">
+    <div class="card">
+      <div class="card-title">Ajouter un ami</div>
+      <div class="social-form">
+        <div class="field"><div class="field-label">Pseudo</div><input type="text" id="friend-input" placeholder="Ex : Jo, Sarah, sprinter94"></div>
+        <button class="btn-gold" onclick="addDemoFriend()">Ajouter</button>
+      </div>
+      <div class="analysis-text" id="friend-status" style="margin-top:9px;color:#707885">Prototype : les amis sont simulés pour valider l’ergonomie avant les vrais comptes.</div>
+    </div>
+
+    <div class="social-section-header">
+      <div class="sec-label">Mes amis</div>
+      <div class="social-count" id="friends-count">0 ami</div>
+    </div>
+    <div id="friends-list" class="friends-list-modern"></div>
+  </section>
+
+  <section id="social-panel-comparer" class="social-panel">
+    <div class="social-section-header">
+      <div class="sec-label">Comparer mes records</div>
+      <div class="social-count">PB homologués</div>
+    </div>
+    <div id="compare-friend-picker" class="compare-friend-picker" aria-label="Choisir un ami"></div>
+    <div class="card compare-card-modern" id="compare-card"></div>
+    <div class="compare-legend">Les performances de compétition sur 100 m et 200 m avec un vent supérieur à +2,0 m/s sont signalées par <strong class="wind-aided-mark">w</strong> et ne comptent pas comme PB homologués.</div>
+  </section>
+
+  <section id="social-panel-activite" class="social-panel">
+    <div class="social-section-header">
+      <div class="sec-label">Activité des amis</div>
+      <div class="social-count">Derniers chronos</div>
+    </div>
+    <div id="social-feed"></div>
+  </section>
+
+  <section id="social-panel-carte" class="social-panel">
+    <div class="map-social-note">
+      <strong>Carte sociale</strong>
+      <span>Cette vue prépare la future carte réelle : elle montrera les pistes où tes amis ont déjà enregistré des chronos.</span>
+    </div>
+    <div id="social-map-list"></div>
+  </section>
+</div>
+
 <div id="page-carte" class="page">
   <p class="page-title">Pistes Paris</p>
   <div id="map-container">
@@ -3476,32 +4177,30 @@ body.drawer-lock{
   <div id="pistes-list"></div>
 </div>
 
+
 <nav id="nav">
-  <button class="nav-btn active" onclick="showPage('dashboard',this)">
+  <button class="nav-btn active" data-nav="dashboard" onclick="showPage('dashboard',this)">
     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
     Accueil
   </button>
-  <button class="nav-btn" onclick="showPage('starter',this)">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
-    Starter
-  </button>
-  <button class="nav-btn" onclick="showPage('chronos',this)">
+  <button class="nav-btn" data-nav="chronos" onclick="showPage('chronos',this)">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9.5 2.5h5M12 2.5v2.5"/></svg>
     Chronos
   </button>
-  <button class="nav-btn" onclick="showPage('stats',this)">
+  <button class="nav-btn" data-nav="stats" onclick="showPage('stats',this)">
     <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
     Stats
   </button>
-  <button class="nav-btn" onclick="showPage('objectifs',this)">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-    Objectifs
+  <button class="nav-btn" data-nav="social" onclick="showPage('social',this)">
+    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3"/><path d="M8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3z"/><path d="M2.5 20c.7-3 2.7-5 5.5-5s4.8 2 5.5 5"/><path d="M14 15c2.5.2 4.2 1.9 5 5"/></svg>
+    Social
   </button>
-  <button class="nav-btn" onclick="showPageCarte(this)">
+  <button class="nav-btn" data-nav="carte" onclick="showPageCarte(this)">
     <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     Carte
   </button>
 </nav>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <div class="smart-drawer" id="smart-drawer" aria-hidden="true">
@@ -3530,6 +4229,22 @@ function wait(ms){return new Promise(function(r){timers.push(setTimeout(r,ms));}
 function clearAll(){timers.forEach(clearTimeout);timers=[];if(cdInt){clearInterval(cdInt);cdInt=null;}}
 var MONTHS=['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
 function fmtTime(t){if(typeof t!=='number'||isNaN(t))return'--';if(t>=60){var m=Math.floor(t/60),s=(t%60).toFixed(2);return m+':'+s.padStart(5,'0');}return t.toFixed(2)+'s';}
+function windNumber(value){
+  if(value===null||value===undefined||value==='')return null;
+  var n=parseFloat(String(value).replace(',','.').replace(/[^0-9+\-.]/g,''));
+  return isNaN(n)?null:n;
+}
+function isWindAided(r){
+  if(!r||r.type!=='official')return false;
+  var d=String(r.dist);
+  if(d!=='100'&&d!=='200')return false;
+  var w=windNumber(r.wind);
+  return w!==null&&w>2.0;
+}
+function fmtPerformance(r){
+  if(!r)return'--';
+  return fmtTime(Number(r.time))+(isWindAided(r)?'<sup class="wind-aided-mark" title="Vent supérieur à +2,0 m/s : performance non homologuée">w</sup>':'');
+}
 function fmtDist(d){return d==='f10'?'Flying 10m':d==='f20'?'Flying 20m':d+'m';}
 function distM(d){return d==='f10'?10:d==='f20'?20:parseFloat(d);}
 function calcSpd(dist,time){var m=distM(dist);if(!m||!time||isNaN(time))return null;return{ms:(m/time).toFixed(2),kmh:(m/time*3.6).toFixed(1)};}
@@ -3599,13 +4314,192 @@ function handleSprintImport(input){
 function showPage(id,btn){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
-  document.getElementById('page-'+id).classList.add('active');
+  var page=document.getElementById('page-'+id);
+  if(page)page.classList.add('active');
   if(id==='starter'||id==='objectifs')setTimeout(initRangeFills,0);
   if(btn)btn.classList.add('active');
   if(id==='dashboard')renderDashboard();
   if(id==='stats'){updateDistSel();renderStats();}
   if(id==='chronos')renderRecs();
+  if(id==='social')renderSocial();
   if(id==='objectifs'){renderObjs();calcForme();renderRecup();renderSeances();}
+}
+
+
+
+
+// SOCIAL — prototype local, prêt pour une future base de données
+var selectedFriendIndex = 0;
+
+function getDemoFriends(){
+  var saved=[];
+  try{saved=JSON.parse(localStorage.getItem('sp_demo_friends')||'[]')||[];}catch(e){saved=[];}
+  var base=[
+    {name:'Jo Sprint',status:'Ami',pbs:{60:'7.42',100:'11.38',200:'23.10',400:'52.90'},last:{dist:'100',time:'11.38',place:'Stade Charléty',date:'Aujourd’hui'}},
+    {name:'Sarah Track',status:'Ami',pbs:{60:'8.05',100:'12.64',200:'25.88',400:'58.20'},last:{dist:'200',time:'25.88',place:'Léo Lagrange',date:'Hier'}},
+    {name:'Max Relay',status:'Ami',pbs:{60:'7.80',100:'11.92',200:'24.30',400:'54.70'},last:{dist:'400',time:'54.70',place:'Stade Pershing',date:'Cette semaine'}}
+  ];
+  return base.concat(saved);
+}
+
+function friendInitials(name){
+  return String(name||'?').split(/\s+/).filter(Boolean).slice(0,2).map(function(s){
+    return s.charAt(0).toUpperCase();
+  }).join('')||'?';
+}
+
+function showSocialTab(id,btn){
+  document.querySelectorAll('.social-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.social-tab').forEach(function(b){b.classList.remove('active');});
+  var panel=document.getElementById('social-panel-'+id);
+  if(panel)panel.classList.add('active');
+  if(btn)btn.classList.add('active');
+  renderSocial();
+}
+
+function addDemoFriend(){
+  var input=document.getElementById('friend-input');
+  var status=document.getElementById('friend-status');
+  var name=(input&&input.value?input.value:'').trim();
+  if(!name){
+    if(status)status.textContent='Entre un pseudo pour créer un ami démo.';
+    return;
+  }
+  var saved=[];
+  try{saved=JSON.parse(localStorage.getItem('sp_demo_friends')||'[]')||[];}catch(e){saved=[];}
+  saved.push({
+    name:name,
+    status:'Démo',
+    pbs:{60:'--',100:'--',200:'--',400:'--'},
+    last:{dist:'100',time:'--',place:'À compléter',date:'Nouveau'}
+  });
+  localStorage.setItem('sp_demo_friends',JSON.stringify(saved));
+  if(input)input.value='';
+  if(status)status.textContent=name+' ajouté en ami démo.';
+  renderSocial();
+}
+
+function myBestForSocial(dist){
+  var pbs=getPBs();
+  var tr=pbs[String(dist)+'_training'];
+  var off=pbs[String(dist)+'_official'];
+  var best=tr&&off?(Number(tr.time)<=Number(off.time)?tr:off):(tr||off);
+  return best?Number(best.time).toFixed(2):'--';
+}
+
+function toggleFriendCard(index){
+  var card=document.querySelector('[data-friend-index="'+index+'"]');
+  if(card)card.classList.toggle('expanded');
+}
+
+function compareFriend(index){
+  selectedFriendIndex=index;
+  showSocialTab('comparer',document.querySelector('[data-social-tab="comparer"]'));
+}
+
+function renderFriendCard(f,index){
+  var keyDist=(f.last&&f.last.dist)||'100';
+  var keyTime=(f.pbs&&f.pbs[keyDist]) || (f.last&&f.last.time) || '--';
+
+  return '<div class="friend-card compact" data-friend-index="'+index+'">'
+    +'<button class="friend-summary" onclick="toggleFriendCard('+index+')">'
+      +'<div class="friend-avatar">'+friendInitials(f.name)+'</div>'
+      +'<div class="friend-main">'
+        +'<div class="friend-name">'+f.name+'</div>'
+        +'<div class="friend-subline">'+((f.last&&f.last.place)||'Aucune piste')+'</div>'
+      +'</div>'
+      +'<div class="friend-key"><span>'+keyDist+' m</span><strong>'+keyTime+'</strong></div>'
+      +'<div class="friend-chevron">⌄</div>'
+    +'</button>'
+    +'<div class="friend-details">'
+      +'<div class="friend-grid">'
+      +['60','100','200','400'].map(function(d){
+        return '<div class="friend-pb"><span>'+d+' m</span><strong>'+((f.pbs&&f.pbs[d])||'--')+'</strong></div>';
+      }).join('')
+      +'</div>'
+      +'<div class="friend-detail-actions"><button class="friend-mini-btn" onclick="compareFriend('+index+')">Comparer</button></div>'
+    +'</div>'
+  +'</div>';
+}
+
+function selectCompareFriend(index){
+  selectedFriendIndex=index;
+  renderSocial();
+}
+
+function renderSocial(){
+  var friends=getDemoFriends();
+  var count=document.getElementById('friends-count');
+  if(count)count.textContent=friends.length+' amis';
+
+  var list=document.getElementById('friends-list');
+  if(list)list.innerHTML=friends.map(renderFriendCard).join('');
+
+  if(selectedFriendIndex >= friends.length) selectedFriendIndex = 0;
+  var selected=friends[selectedFriendIndex]||null;
+
+  var picker=document.getElementById('compare-friend-picker');
+  if(picker){
+    picker.innerHTML=friends.map(function(f,index){
+      return '<button class="compare-friend-chip '+(index===selectedFriendIndex?'active':'')+'" onclick="selectCompareFriend('+index+')">'
+        +'<span class="friend-avatar">'+friendInitials(f.name)+'</span>'
+        +'<span>'+f.name+'</span>'
+      +'</button>';
+    }).join('');
+  }
+
+  var compare=document.getElementById('compare-card');
+  if(compare){
+    if(!selected){
+      compare.innerHTML='<div class="analysis-text">Ajoute un ami pour comparer tes records.</div>';
+    }else{
+      var rows=['60','100','200','400'].map(function(d){
+        var mine=myBestForSocial(d);
+        var friend=(selected.pbs&&selected.pbs[d])||'--';
+        var result='À compléter';
+        if(mine!=='--'&&friend!=='--'){
+          var diff=Number(mine)-Number(friend);
+          if(Math.abs(diff)<0.005)result='Égalité';
+          else result=diff<0?'Tu es devant de '+Math.abs(diff).toFixed(2)+'s':selected.name+' est devant de '+Math.abs(diff).toFixed(2)+'s';
+        }
+        return '<div class="compare-distance-card">'
+          +'<div class="compare-distance-head"><span class="compare-distance">'+d+' m</span><span class="compare-result">'+result+'</span></div>'
+          +'<div class="compare-values">'
+            +'<div class="compare-person"><span>Moi</span><strong>'+mine+'</strong></div>'
+            +'<div class="compare-vs">VS</div>'
+            +'<div class="compare-person right"><span>'+selected.name+'</span><strong>'+friend+'</strong></div>'
+          +'</div>'
+        +'</div>';
+      }).join('');
+
+      compare.innerHTML='<div class="compare-summary">'
+        +'<div class="friend-name-wrap"><div class="friend-avatar">'+friendInitials(selected.name)+'</div><div><strong>'+selected.name+'</strong><span>Comparaison des meilleurs chronos homologués</span></div></div>'
+        +'<button class="friend-mini-btn" onclick="showSocialTab(&quot;amis&quot;,document.querySelector(&quot;[data-social-tab=amis]&quot;))">Changer</button>'
+      +'</div><div class="compare-grid">'+rows+'</div>';
+    }
+  }
+
+  var feed=document.getElementById('social-feed');
+  if(feed){
+    feed.innerHTML=friends.map(function(f){
+      var last=f.last||{};
+      return '<div class="social-feed-card">'
+        +'<div class="social-feed-main"><div class="friend-avatar">'+friendInitials(f.name)+'</div><div class="social-feed-text"><strong>'+f.name+'</strong><span>'+((last.date)||'')+' • '+((last.place)||'Piste non renseignée')+' • '+((last.dist)||'')+' m</span></div></div>'
+        +'<div class="social-feed-time">'+((last.time)||'--')+'</div>'
+        +'</div>';
+    }).join('');
+  }
+
+  var socialMap=document.getElementById('social-map-list');
+  if(socialMap){
+    socialMap.innerHTML=friends.map(function(f){
+      var last=f.last||{};
+      return '<div class="friend-map-item">'
+        +'<div class="friend-map-main"><strong>'+f.name+'</strong><span>'+((last.place)||'Piste non renseignée')+' • '+((last.dist)||'')+' m</span></div>'
+        +'<div class="friend-map-time">'+((last.time)||'--')+'</div>'
+        +'</div>';
+    }).join('');
+  }
 }
 
 // STARTER
@@ -3637,7 +4531,7 @@ async function goStart(){
   document.getElementById('reaction-box').style.display='block';
   renderDelayHist();
   await wait(3500);
-  uiS('Pret ?','Recommencer','','\u{1F3C1}',null);
+  uiS('Prêt ?','Recommencer','','\u{1F3C1}',null);
   document.getElementById('btn-start').disabled=false;
   document.getElementById('btn-start').textContent='RECOMMENCER';
   running=false;
@@ -3733,7 +4627,7 @@ function setType(t,btn){
 }
 function setFilter(f,btn){curFilter=f;document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');renderRecs();}
 document.getElementById('f-date').value=todayStr();setTimeout(function(){var fw=document.getElementById('f-wind').closest('.field');if(fw)fw.style.display='none';var lw=document.getElementById('f-lieu-wrap');if(lw)lw.style.display='none';},0);
-function getPBs(){var recs=getRecs(),pbs={};recs.forEach(function(r){var k=r.dist+'_'+r.type;if(!pbs[k]||r.time<pbs[k].time)pbs[k]=Object.assign({},r);});return pbs;}
+function getPBs(){var recs=getRecs(),pbs={};recs.forEach(function(r){if(isWindAided(r))return;var k=r.dist+'_'+r.type;if(!pbs[k]||r.time<pbs[k].time)pbs[k]=Object.assign({},r);});return pbs;}
 function addRecord(){
   var dist=document.getElementById('f-dist').value;
   var time=parseFloat(document.getElementById('f-time').value);
@@ -3803,7 +4697,7 @@ var FFA_SPRINTS=[
 // By default, FFA import uses Netlify Functions: /.netlify/functions/import-ffa
 // For GitHub Pages, set window.SPRINT_PRO_FFA_ENDPOINT before importFFA,
 // or edit this value with your Cloudflare Worker URL.
-window.SPRINT_PRO_FFA_ENDPOINT = window.SPRINT_PRO_FFA_ENDPOINT || '';
+window.SPRINT_PRO_FFA_ENDPOINT = "https://sprint-pro-ffa.maxime-afanou.workers.dev";
 
 function getFFAEndpoint(link){
   var custom = (window.SPRINT_PRO_FFA_ENDPOINT || '').trim();
@@ -3909,7 +4803,7 @@ function importFFA(){
       recs.sort(function(a,b){return b.ts-a.ts;});
       saveRecs(recs);
       curFilter='official';
-      var compBtn=[].slice.call(document.querySelectorAll('.tab-btn')).find(function(b){return /Competition|Compétition/i.test(b.textContent);});
+      var compBtn=[].slice.call(document.querySelectorAll('.tab-btn')).find(function(b){return /Compétition|Compétition/i.test(b.textContent);});
       if(compBtn)setType('official',compBtn);
       else renderRecs();
       updateDistSel();
@@ -3961,17 +4855,18 @@ function renderRecs(){
   if(!filtered.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">\u23F1</div><div class="empty-text">Aucun chrono.<br>Ajoute ton premier resultat !</div></div>';return;}
   el.innerHTML=filtered.map(function(r){
     var isOf=r.type==='official';
-    var k=r.dist+'_'+r.type;var isPB=pbs[k]&&pbs[k].id===r.id;
-    var cls=isPB?'pb-item':isOf?'of':'tr';
-    var badge=isPB?'<span class="rec-badge badge-pb">RECORD</span>':isOf?'<span class="rec-badge badge-of">COMPET.</span>':'<span class="rec-badge badge-tr">ENTRAIN.</span>';
+    var windAided=isWindAided(r);
+    var k=r.dist+'_'+r.type;var isPB=!windAided&&pbs[k]&&pbs[k].id===r.id;
+    var cls=windAided?'wind-aided':isPB?'pb-item':isOf?'of':'tr';
+    var badge=windAided?'<span class="rec-badge badge-wind">VENT +2</span>':isPB?'<span class="rec-badge badge-pb">RECORD</span>':isOf?'<span class="rec-badge badge-of">COMPET.</span>':'<span class="rec-badge badge-tr">ENTRAIN.</span>';
     if(r.isFFA)badge+=' <span class="rec-badge badge-of">FFA</span>';
-    var meta=[r.dateStr,r.compet,r.lieu,r.wind?(String(r.wind).charAt(0)==='+'||String(r.wind).charAt(0)==='-'?r.wind:'+'+r.wind)+' m/s vent':'',r.feel?'Sens. '+r.feel+'/10':'',r.fatigue?'Fatigue '+r.fatigue+'/10':'',r.note].filter(Boolean).join(' - ');
+    var meta=[r.dateStr,r.compet,r.lieu,r.wind?(String(r.wind).charAt(0)==='+'||String(r.wind).charAt(0)==='-'?r.wind:'+'+r.wind)+' m/s vent':'',windAided?'Non homologué (vent)':'',r.feel?'Sens. '+r.feel+'/10':'',r.fatigue?'Fatigue '+r.fatigue+'/10':'',r.note].filter(Boolean).join(' - ');
     var speed=r.sKmh?'<div class="rec-speed">Vitesse moyenne : '+r.sMs+' m/s - '+r.sKmh+' km/h</div>':'';
     var officialExtra=r.isFFA?'<div class="rec-extra"><strong>Lieu :</strong> '+(r.lieu||'--')+'<br><strong>Nature :</strong> '+(r.tour||'Compétition')+'<br><strong>Source :</strong> Officiel FFA</div>':'';
     var feelBtn=isOf?'<button class="btn-mini" onclick="openFeel('+r.id+')">'+((r.feel||r.fatigue||r.note)?'Modifier ressenti':'Ajouter ressenti')+'</button>':'';
     var opts='';for(var n=1;n<=10;n++){opts+='<option value="'+n+'">'+n+'</option>';}
     var feelBox=isOf?'<div class="feel-edit" id="feel-'+r.id+'" style="display:none"><div class="field-row"><select id="feelv-'+r.id+'"><option value="">Sensation</option>'+opts.replace('value="'+(r.feel||'')+'"','value="'+(r.feel||'')+'" selected')+'</select><select id="fatv-'+r.id+'"><option value="">Fatigue</option>'+opts.replace('value="'+(r.fatigue||'')+'"','value="'+(r.fatigue||'')+'" selected')+'</select></div><textarea id="notev-'+r.id+'" placeholder="Note personnelle...">'+(r.note||'')+'</textarea><button class="btn-outline" onclick="saveFeel('+r.id+')">Enregistrer</button></div>':'';
-    return '<div class="rec-item '+cls+'"><div><div class="rec-dist '+cls+'">'+fmtDist(r.dist)+'</div><div class="rec-time">'+fmtTime(r.time)+'</div>'+speed+'<div class="rec-meta">'+meta+'</div>'+officialExtra+badge+feelBtn+feelBox+'</div><button class="rec-del" onclick="delRec('+r.id+')">x</button></div>';
+    return '<div class="rec-item '+cls+'"><div><div class="rec-dist '+cls+'">'+fmtDist(r.dist)+'</div><div class="rec-time '+(windAided?'wind-aided-time':'')+'">'+fmtPerformance(r)+'</div>'+speed+'<div class="rec-meta">'+meta+'</div>'+officialExtra+badge+feelBtn+feelBox+'</div><button class="rec-del" onclick="delRec('+r.id+')">x</button></div>';
   }).join('');
 }
 function delRec(id){saveRecs(getRecs().filter(function(r){return r.id!==id;}));renderRecs();updateDistSel();computeBadges();}
@@ -3991,7 +4886,7 @@ function renderStats(){
   var pbs=getPBs();
   function renderPBG(el,type){
     var all=getRecs().filter(function(r){return r.type===type;}),pm={};
-    all.forEach(function(r){if(!pm[r.dist]||r.time<pm[r.dist].time)pm[r.dist]={time:r.time,dateStr:r.dateStr,compet:r.compet};});
+    all.forEach(function(r){if(type==='official'&&isWindAided(r))return;if(!pm[r.dist]||r.time<pm[r.dist].time)pm[r.dist]={time:r.time,dateStr:r.dateStr,compet:r.compet};});
     var dists=Object.keys(pm).sort(function(a,b){var na=isNaN(a)?999:+a,nb=isNaN(b)?999:+b;return na-nb;});
     if(!dists.length){el.innerHTML='<div class="empty-state" style="grid-column:1/-1;padding:1rem 0;font-size:11px">Aucun record</div>';return;}
     el.innerHTML=dists.map(function(d){var p=pm[d];return'<div class="pb-card'+(type==='official'?' off':'')+'"><div class="pb-dlabel">'+fmtDist(d)+'</div><div class="pb-tval '+(type==='official'?'of':'tr')+'">'+fmtTime(p.time)+'</div><div class="pb-dval">'+(p.compet||p.dateStr)+'</div></div>';}).join('');
@@ -4012,8 +4907,8 @@ function renderStats(){
   var minV=Math.min.apply(null,allV)*0.985,maxV=Math.max.apply(null,allV)*1.015;
   var ctx2=canvas.getContext('2d');if(chart)chart.destroy();
   chart=new Chart(ctx2,{type:'line',data:{labels:labels,datasets:[
-    {label:'Entrainement',data:td,borderColor:'#4a90d9',backgroundColor:'rgba(74,144,217,.07)',pointBackgroundColor:'#4a90d9',pointBorderColor:'#080808',pointBorderWidth:2,pointRadius:5,tension:0.35,fill:true,borderWidth:2,spanGaps:true},
-    {label:'Competition',data:od,borderColor:'#d4a017',backgroundColor:'rgba(212,160,23,.07)',pointBackgroundColor:'#d4a017',pointBorderColor:'#080808',pointBorderWidth:2,pointRadius:6,tension:0.35,fill:true,borderWidth:2,spanGaps:true}
+    {label:'Entraînement',data:td,borderColor:'#4a90d9',backgroundColor:'rgba(74,144,217,.07)',pointBackgroundColor:'#4a90d9',pointBorderColor:'#080808',pointBorderWidth:2,pointRadius:5,tension:0.35,fill:true,borderWidth:2,spanGaps:true},
+    {label:'Compétition',data:od,borderColor:'#d4a017',backgroundColor:'rgba(212,160,23,.07)',pointBackgroundColor:'#d4a017',pointBorderColor:'#080808',pointBorderWidth:2,pointRadius:6,tension:0.35,fill:true,borderWidth:2,spanGaps:true}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#111',borderColor:'#222',borderWidth:1,titleColor:'#888',bodyColor:'#ccc',callbacks:{label:function(c){return c.dataset.label+': '+fmtTime(c.parsed.y);}}}},scales:{x:{grid:{color:'#111'},ticks:{color:'#444',font:{size:10}}},y:{min:minV,max:maxV,reverse:true,grid:{color:'#111'},ticks:{color:'#444',font:{size:10},callback:function(v){return fmtTime(v);}}}}}});
   var trT=recs.filter(function(r){return r.type==='training';}).map(function(r){return r.time;}).sort(function(a,b){return a-b;});
   var ofT=recs.filter(function(r){return r.type==='official';}).map(function(r){return r.time;}).sort(function(a,b){return a-b;});
@@ -4043,7 +4938,7 @@ function renderObjs(){
     var pct=best!=null?Math.min(100,Math.max(0,Math.round(100-(best-o.target)/best*200))):0;
     var gap=best!=null?(best-o.target).toFixed(2):null;
     var gapText=best!=null?(best<=o.target?'Objectif atteint':gap+'s restant'):'En attente de chrono';
-    return '<div class="obj-wrap"><div class="obj-card obj-card-premium"><button class="obj-delete" onclick="delObj('+o.id+')" aria-label="Supprimer l’objectif">×</button><div class="obj-head"><div class="obj-dist-label">'+fmtDist(o.dist)+(o.deadline?' · '+o.deadline:'')+'</div><div class="obj-progress-side"><div class="obj-pct-badge">'+pct+'%</div>'+(best!=null?'<div class="obj-gap-inline '+(best<=o.target?'pos':'neg')+'">'+gapText+'</div>':'<div class="obj-gap-inline muted">'+gapText+'</div>')+'</div></div><div class="obj-metrics"><div class="obj-metric"><span>Cible</span><strong>'+fmtTime(o.target)+'</strong></div><div class="obj-sep"></div><div class="obj-metric '+(best!=null?'':'is-empty')+'"><span>Actuel</span><strong>'+(best!=null?fmtTime(best):'--')+'</strong></div></div></div><div class="obj-bar"><div class="obj-fill" style="width:'+pct+'%"></div></div></div>';
+    return '<div class="obj-wrap"><div class="obj-card obj-card-premium"><button class="obj-delete" onclick="delObj('+o.id+')" aria-label="Supprimer l’objectif" title="Supprimer"></button><div class="obj-head"><div class="obj-dist-label">'+fmtDist(o.dist)+(o.deadline?' · '+o.deadline:'')+'</div><div class="obj-progress-side"><div class="obj-pct-badge">'+pct+'%</div>'+(best!=null?'<div class="obj-gap-inline '+(best<=o.target?'pos':'neg')+'">'+gapText+'</div>':'<div class="obj-gap-inline muted">'+gapText+'</div>')+'</div></div><div class="obj-metrics"><div class="obj-metric"><span>Cible</span><strong>'+fmtTime(o.target)+'</strong></div><div class="obj-sep"></div><div class="obj-metric '+(best!=null?'':'is-empty')+'"><span>Actuel</span><strong>'+(best!=null?fmtTime(best):'--')+'</strong></div></div></div><div class="obj-bar"><div class="obj-fill" style="width:'+pct+'%"></div></div></div>';
   }).join('');
 }
 function delObj(id){saveObjs(getObjs().filter(function(o){return o.id!==id;}));renderObjs();}
@@ -4591,7 +5486,7 @@ function getBestOfficialDistances(){
   var allBest={};
   getRecs().forEach(function(r){
     var d=String(r.dist);
-    if(officialOrder.indexOf(d)===-1)return;
+    if(officialOrder.indexOf(d)===-1||isWindAided(r))return;
     if(!allBest[d] || Number(r.time)<Number(allBest[d].time))allBest[d]=r;
   });
   return {order:officialOrder,best:allBest};
@@ -4660,7 +5555,12 @@ function renderDashboard(){
   var pb100=pbs['100_training']||pbs['100_official'];
   document.getElementById('d-pb100').textContent=pb100?fmtTime(pb100.time):'--';
   document.getElementById('d-pb100-sub').textContent=pb100?pb100.dateStr:'Aucun chrono';
-  if(recs.length){var last=recs[0];document.getElementById('d-last').textContent=fmtTime(last.time);document.getElementById('d-last-sub').textContent=fmtDist(last.dist)+' - '+last.dateStr;}
+  if(recs.length){
+    var last=recs[0],lastEl=document.getElementById('d-last');
+    lastEl.innerHTML=fmtPerformance(last);
+    lastEl.classList.toggle('wind-aided-time',isWindAided(last));
+    document.getElementById('d-last-sub').textContent=fmtDist(last.dist)+' - '+last.dateStr+(isWindAided(last)?' · vent non homologué':'');
+  }
   var obj100=getObjs().find(function(o){return String(o.dist)==='100';});
   if(obj100){
     document.getElementById('d-obj100').textContent=fmtTime(obj100.target);
@@ -4898,6 +5798,15 @@ function pisteDistanceText(p){
   var d=haversine(window._myLat,window._myLng,p.lat,p.lng);
   return d<1?'Distance : '+Math.round(d*1000)+' m':'Distance : '+d.toFixed(1)+' km';
 }
+
+function resetLocateButtonState(){
+  var btn=document.getElementById('btn-locate');
+  if(!btn)return;
+  btn.innerHTML='<span class="locate-glyph" aria-hidden="true">🎯</span>';
+  btn.title=btn.classList.contains('is-located')?'Position activée':'Me localiser';
+}
+document.addEventListener('DOMContentLoaded',resetLocateButtonState);
+
 function locateMe(){
   var btn=document.getElementById('btn-locate');
   if(!navigator.geolocation){
@@ -5034,6 +5943,7 @@ function renderPistesList(){
   }
 }
 function showPageCarte(btn){
+  setTimeout(resetLocateButtonState,0);
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
   document.getElementById('page-carte').classList.add('active');btn.classList.add('active');
@@ -5073,5 +5983,16 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeSmartDrawer();
 });
 </script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js").catch(function (error) {
+        console.error("Erreur du service worker Sprint Pro :", error);
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
