@@ -1,0 +1,8 @@
+Sprint Pro — version perfectionnée
+
+- Tableau de bord rééquilibré sur ordinateur et mobile.
+- Hiérarchie visuelle et largeurs harmonisées sur toutes les pages.
+- Social compact : ajout d’ami repliable, cartes cohérentes, activité filtrable.
+- Comparaison, carte amis interactive et règles de vent homologué conservées.
+- Navigation, focus clavier, zones tactiles et réduction des animations améliorés.
+- Cache PWA : sprint-pro-v6.
